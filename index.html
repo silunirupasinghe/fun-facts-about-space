@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #ffc0cb;
+            background-color: #d4f8e8;
             color: #333;
             display: flex;
             justify-content: center;
@@ -32,10 +32,12 @@
             border-radius: 5px;
             cursor: pointer;
             font-size: 16px;
+            transition: background-color 0.3s, transform 0.3s;
         }
 
         button:hover {
             background-color: #0056b3;
+            transform: translateY(-2px);
         }
 
         p {
@@ -61,7 +63,15 @@
 
         document.getElementById('factButton').addEventListener('click', function() {
             const randomIndex = Math.floor(Math.random() * facts.length);
-            document.getElementById('factDisplay').textContent = facts[randomIndex];
+            const fact = facts[randomIndex];
+            document.getElementById('factDisplay').textContent = fact;
+            document.getElementById('shareButton').style.display = 'inline-block';
+        });
+
+        document.getElementById('shareButton').addEventListener('click', function() {
+            const fact = document.getElementById('factDisplay').textContent;
+            const shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(fact)}`;
+            window.open(shareUrl, '_blank');
         });
     </script>
 </body>
