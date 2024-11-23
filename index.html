@@ -4,7 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fun Facts About Developers</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        p {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -12,6 +50,19 @@
         <button id="factButton">Show me a fun fact!</button>
         <p id="factDisplay"></p>
     </div>
-    <script src="script.js"></script>
+    <script>
+        const facts = [
+            "The first computer programmer was Ada Lovelace in the 1800s.",
+            "The first computer virus was created in 1983.",
+            "The first high-level programming language was Fortran, developed in the 1950s.",
+            "The term 'debugging' was coined by Grace Hopper when a moth was removed from a computer.",
+            "JavaScript was created in just 10 days by Brendan Eich in 1995."
+        ];
+
+        document.getElementById('factButton').addEventListener('click', function() {
+            const randomIndex = Math.floor(Math.random() * facts.length);
+            document.getElementById('factDisplay').textContent = facts[randomIndex];
+        });
+    </script>
 </body>
 </html>
